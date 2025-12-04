@@ -1,3 +1,9 @@
+variable "environment" {
+  description = "Environment name (e.g., dev, staging, prod)"
+  type        = string
+  default     = "prd"
+}
+
 module "vpc" {
   source      = "./modules/vpc"
   environment = var.environment
@@ -12,7 +18,7 @@ module "networking" {
 }
 
 module "security_groups" {
-  source      = "./modules/vpcgroup"  # <-- Change to this if not renaming folder; otherwise "./modules/security-groups"
+  source      = "./modules/security-groups"  # <-- Use this if renaming folder; else "./modules/vpcgroup"
   vpc_id      = module.vpc.vpc_id
   environment = var.environment
 }

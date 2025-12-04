@@ -13,8 +13,3 @@ resource "aws_wafv2_web_acl" "this" {
     sampled_requests_enabled   = true
   }
 }
-
-# Output the ARN for ALB module
-output "waf_arn" {
-  value = aws_wafv2_web_acl.this.arn
-}
