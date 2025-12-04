@@ -12,4 +12,6 @@ resource "aws_wafv2_web_acl" "this" {
     metric_name                = "${var.environment}-waf"
     sampled_requests_enabled   = true
   }
-}
+}  // till here you need to set the WAF rule manually from the portal//
+
+
